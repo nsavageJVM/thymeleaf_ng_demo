@@ -1,0 +1,51 @@
+<clr-main-container>
+ 
+  <div class="content-container">
+    
+    <div class="content-area"  style="min-height: 240px">
+        <table class="table">
+            <thead>
+              <tr>
+                <th class="left">name</th>
+                <th class="left">username</th>
+                <th class="left">email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of userData">
+                <td class="left">
+                  <a (click)="openModal($event, user)" href="">{{user.name}}</a>
+                </td>
+                <td class="left">{{user.username}}</td>
+                <td class="left">{{user.email}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <clr-modal [(clrModalOpen)]="showModal">
+            <h3 class="modal-title">{{user?.name}}</h3>
+            <div class="modal-body">
+              <pre>{{user | json}}</pre>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="closeModal()">Ok</button>
+            </div>
+          </clr-modal>
+    </div>
+    
+    <nav class="sidenav">
+      <section class="sidenav-content">
+          <section class="nav-group">
+              <label for="tabexample2">Users</label>
+              <ul class="nav-list">
+                  <li><a class="nav-link active">Add User</a></li>
+                  <li><a class="nav-link">Change Password</a></li>
+   
+              </ul>
+          </section>
+      </section>
+  </nav>
+  <aside class="right-section">
+      Notes
+  </aside>
+  </div>
+</clr-main-container>

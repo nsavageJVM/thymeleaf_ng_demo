@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+
+</head>
+<body>
+uyh
+<div  th:fragment="header">
+    <!-- Navbar  https://jsfiddle.net/EchoCode/6a5eboaz/1/ -->
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button"
+            data-toggle="collapse" data-target="#navbar_header" aria-controls="navbar_header"
+            aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="#"  th:href="@{/}">Spring Thymeleaf Security with Angualar</a>
+
+        <div class="collapse navbar-collapse" id="navbar_header">
+            <ul class="navbar-nav">
+                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item active">
+                    <a href="#" th:href="@{/logout}" class="nav-link">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--/.nav-collapse -->
+
+</div>
+</body>
+</html>
